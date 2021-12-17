@@ -91,6 +91,8 @@ body {
      the element behind of the animated element can be hidden; 
      e.g. when we are rotating elements. */
   backface-visibility: hidden;
+
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -151,4 +153,80 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  /* as is text then is a inline element we changed to block, 
+  we always do this if we want to add some paddings top,bottom,left, right*/
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* 0 x direction 10 y direction 20px blur and a colour with a transparent shadow
+     having an opacity of 20%*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* after pseudo element*/
+.btn::after {
+  content: "";
+  /* same as the button*/
+  display: inline-block;
+  /* we take the same dimentions of the button*/
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* after only when we hover, we want the element to grow and fade out*/
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  /* to fade out*/
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards
+    /* apply the styles before tha animatino starts*/;
 }
