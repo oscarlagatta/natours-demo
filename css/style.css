@@ -56,8 +56,8 @@ body {
   height: 95vh;
   background-image: linear-gradient(
       to right bottom,
-      rgba(126, 213, 111, 0.803),
-      #28b485
+      rgba(225, 236, 227, 0.81),
+      #8cc7a4
     ),
     url(../img/hero.jpg);
   background-size: cover;
@@ -86,6 +86,11 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* to avoid any jumping for the animation; any element; that is
+     the element behind of the animated element can be hidden; 
+     e.g. when we are rotating elements. */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -93,6 +98,14 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; /* starts fast and then slows*/
+  /*
+  animation-delay: 3s;
+  animation-iteration-count: 3;
+  */
 }
 
 .heading-primary-sub {
@@ -100,4 +113,42 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  animation: moveInRight 1s ease-out;
+}
+
+/*
+  ANIMATIONS
+*/
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* the way it looks by default final state.*/
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
