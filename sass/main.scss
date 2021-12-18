@@ -31,7 +31,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
-
+$color-black: #000;
 *,
 *::after,
 *::before {
@@ -78,24 +78,24 @@ body {
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem;
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
@@ -108,30 +108,30 @@ body {
   backface-visibility: hidden;
 
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
 
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; /* starts fast and then slows*/
-  /*
-  animation-delay: 3s;
-  animation-iteration-count: 3;
-  */
-}
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; /* starts fast and then slows*/
+    /*
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+    */
+  }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
 
-  animation: moveInRight 1s ease-out;
+    animation: moveInRight 1s ease-out;
+  }
 }
 
 /*
@@ -182,67 +182,70 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  /* as is text then is a inline element we changed to block, 
-  we always do this if we want to add some paddings top,bottom,left, right*/
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem;
-}
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* as is text then is a inline element we changed to block, 
+      we always do this if we want to add some paddings top,bottom,left, right*/
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-.btn:hover {
-  transform: translateY(-0.3rem);
-  /* 0 x direction 10 y direction 20px blur and a colour with a transparent shadow
-     having an opacity of 20%*/
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: translateY(-0.3rem);
+    /* 0 x direction 10 y direction 20px blur and a colour with a transparent shadow
+         having an opacity of 20%*/
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* to fade out*/
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-/* after pseudo element*/
-.btn::after {
-  content: "";
-  /* same as the button*/
-  display: inline-block;
-  /* we take the same dimentions of the button*/
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-  transition: all 0.4s;
-}
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-.btn--white::after {
-  background-color: $color-white;
-}
+  /* after pseudo element*/
+  &::after {
+    content: "";
+    /* same as the button*/
+    display: inline-block;
+    /* we take the same dimentions of the button*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 
-/* after only when we hover, we want the element to grow and fade out*/
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  /* to fade out*/
-  opacity: 0;
-}
+    transition: all 0.4s;
+  }
 
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards
-    /* apply the styles before tha animatino starts*/;
+  /* after only when we hover, we want the element to grow and fade out*/
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards
+      /* apply the styles before tha animatino starts*/;
+  }
 }
