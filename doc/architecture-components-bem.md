@@ -89,7 +89,7 @@ Media Queries
 
 - To change CSS styles on certain viewport widths (called breakpoints)
 
-Media queries along are completely useless, we really need to start creating fluid layouts from the very beginning. And the same is true for Responsive Units and Flexible Images.
+Media queries alone are completely useless, we really need to start creating fluid layouts from the very beginning. And the same is true for Responsive Units and Flexible Images.
 
 # Layout Types
 
