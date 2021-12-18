@@ -106,3 +106,7 @@ Modern way of layoin out elements in a 1 dimensional row without using floats. P
 CSS GRIDS
 
 For laying out element in a fully fledged 2 dimensional grid. Perfect for page layouts and complex components.
+
+# Grid System
+
+All columns they should be in a container called row

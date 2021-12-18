@@ -1,0 +1,65 @@
+// We start with the row
+.row {
+  // IMPORTANT
+  // We define a width and one of the standards today is to do it with 1140px
+  // The good practice is to use rem 114rem.
+  // This time we don't want to use a with property. Instead we want max-width.
+  // The difference is that if we resize the browser window the content
+  // adapts.
+  // max-width means:
+  // IF WE HAVE ENOUGH AVAILABLE SPACE THEN IT WILL HAVE THE WIDHT THAT WE
+  // SPECIFIED; BUT IF THERE'S NOT ENOUGH SPACE WHEN THE VIEW PORT IS SMALLER
+  // THAN WHAT WE SPECIFIED (1140PX) THEN IT WILL FILL 100% OF THE AVAILABLE
+  // SPACE THAT IT HAS.
+  max-width: $grid-width;
+  background-color: #eee;
+  // We center in the view port
+  margin: 0 auto;
+  // All ROWS have gutter except the last child
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  // Adds clearfix as we are floating the elements and the container colapse
+  @include clearfix;
+
+  // attribute selector all the classes that start with "col-"
+  [class^="col-"] {
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - #{$gutter-horizontal} * 2) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - #{$gutter-horizontal} * 2) / 3) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - #{$gutter-horizontal} * 3) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - #{$gutter-horizontal} * 3) / 4) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - #{$gutter-horizontal} * 3) / 4) + 2 * #{$gutter-horizontal}
+    );
+  }
+}
