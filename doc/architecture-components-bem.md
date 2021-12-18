@@ -65,3 +65,44 @@ Create a logical folder structure for the cSS to live in, like 7-to-1 pattern, a
 - themes/
 - abstracts/
 - vendors
+
+Responsive design: to make the page adjust layout and visual style to any screen size.
+Four principles:
+
+Fluid Layout
+
+- To allow the webpage to adapt to the current viewport with (or even height)
+- Use % (or vh/vw) unit instead of px for elements that should adapt to viewport (usually layout)
+- use max-width instead of width
+
+Responsive Units
+
+- use rem unit instad of px for most lengths
+- to make it easy to scale the entire layout down (or up) automatically
+
+Fleixble Images
+
+- By default images don't scale automatically as we change the viewport, so we need to fix that
+- Always use % for image dimensions, together with the max-width property
+
+Media Queries
+
+- To change CSS styles on certain viewport widths (called breakpoints)
+
+Media queries along are completely useless, we really need to start creating fluid layouts from the very beginning. And the same is true for Responsive Units and Flexible Images.
+
+# Layout Types
+
+There are three ways of laying out web applications.
+
+FLOAT LAYOUTS
+
+The old way of building layouts of all sizes, using the float CSS property. Still used, but getting outdated.
+
+FLEXBOX
+
+Modern way of layoin out elements in a 1 dimensional row without using floats. Perfect for components layouts.
+
+CSS GRIDS
+
+For laying out element in a fully fledged 2 dimensional grid. Perfect for page layouts and complex components.
