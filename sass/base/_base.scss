@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: inherit;
+}
+
+html {
+  /* we changed to 10px to make our lives easier because 
+     now we know 1rem is equal to 10px 
+     1rem is exactly the root font size. 
+     Assigning px to the font-size then the user cannot 
+     set a font-size.*/
+  // this defines what 1rem is
+  font-size: 62.5%;
+}
+
+body {
+  /* change the box model to border box
+     so the borders and paddings are not added to the 
+     total width or total height that is specified for the
+     box.
+  */
+  box-sizing: border-box;
+}
