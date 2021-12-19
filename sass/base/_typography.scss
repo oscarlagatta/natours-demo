@@ -55,6 +55,7 @@ body {
   );
   color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   letter-spacing: 2px;
   transition: all 0.2s;
   &:hover {

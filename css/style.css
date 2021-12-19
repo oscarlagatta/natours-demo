@@ -122,6 +122,7 @@ body {
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   letter-spacing: 2px;
   transition: all 0.2s; }
   .heading-secondary:hover {
