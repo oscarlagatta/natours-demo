@@ -5,12 +5,27 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-light, 0.8)
     ),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
+
   background-size: cover;
   background-position: top;
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  // the larger version of the image is shown when the resolution is
+  // higher than 192dpi (2x screen-macbook) and at the same time
+  // whenver the width is larger than 600px. 600/16 = 37.5
+  // 2000 Is the minimum width that needs to happen to show
+  // the big image, is the width larger than 2000px ? 2000/16 = 125em
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-light, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
